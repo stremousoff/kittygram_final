@@ -37,6 +37,9 @@ services:
   frontend:
     env_file: .env
     build: ./frontend/
+    command: cp -r /app/build/. /frontend_static/
+    volumes:
+      - static:/frontend_static
 
   gateway:
     # Сбилдить и запустить образ,
@@ -46,7 +49,7 @@ services:
     # перенаправление всех запросов с порта 8000 хоста
     # на порт 80 контейнера.
     volumes:
-      - static:/staticfiles/
+      - static:/static/
       - media:/media/
     ports:
       - 9000:80
