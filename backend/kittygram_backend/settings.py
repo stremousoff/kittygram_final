@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-DEBUG = True if 'DEBUG' not in os.environ else False
+DEBUG = os.getenv('DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(', ')
 
@@ -91,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'EUROPE/Moscow'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -110,7 +110,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', 
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
