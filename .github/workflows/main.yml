@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12" ]
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
     services:
       postgres:
         image: postgres:13.10
@@ -174,4 +174,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: Деплой Kittygram успешно выполнен!\nАвтор пуша - (github.actor)\n Коммит - (github.event.commits[0].message).
+        message: Деплой проекта Kittygram успешно выполнен!\nАвтор пуша - (github.actor)\n Коммит - (github.event.commits[0].message).
